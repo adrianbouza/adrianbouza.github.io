@@ -3,7 +3,7 @@ layout: post
 title:  "TableUI Unity asset"
 date:   2020-05-30
 excerpt: "A simple UI element that allows you to create a table in Unity"
-image: "/images/TableUI_2.jpg"
+image: "/images/TableUI.jpg"
 ---
 
 <p>In this post I'll be talking about a little project that I've recently made in Unity. It is a new UI component that allows you to create a simple table with some simple options for configuration. This project was born because I was in the need of a table UI for another project that I am making. And looking in the asset store for solutions I noticed that there are no free asset that could help me. There were some paid solutions that could help me but I decided to make a simple asset and also learn about making a custom inspector in Unity. </p> 
