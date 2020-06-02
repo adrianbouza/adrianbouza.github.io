@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Jekyll Theme - About - Massively
-description: When building a website it's helpful to see what the focus of your site is. This page is an example of how to show a website's focus.
+title: Adrian Bouza - about.
+description: About
 sitemap:
     priority: 0.7
     lastmod: 2020-05-31
