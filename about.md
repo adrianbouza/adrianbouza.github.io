@@ -15,6 +15,10 @@ My name is Adrián Bouza, I am a developer from Spain who is interested in Web A
 
 I have a degree in Computing Engineer and I also have work for almost a year as a Software Developer. I've tried many technologies especially in the field of Web Applications, I'm no expert but I try to learn something new in each project that I make. 
 
+As much as I love Game Developing, right now it is more of a hobby, most of my time I work as a Software Developer, designing and mantaining Web Applications. I've worked with multipe technologies like Java and it's multiple frameworks (Java EE, Spring, Hibernate, JPA, Spring Boot), a little of .NET, Android Studio, Ionic, ...
+
+And I also have a little knowledge with Artificial Intelligence, I've worked with neural networks in Matlab and Python, image recognition, decision trees, ... 
+
 ### What will be the main content of the posts
 <div class="box">
   <p>
