@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Adrian Bouza - about.
+title: Adrian Bouza - About
 description: About
 sitemap:
     priority: 0.7
