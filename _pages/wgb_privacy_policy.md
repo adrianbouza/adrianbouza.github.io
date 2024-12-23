@@ -1,3 +1,12 @@
+---
+layout: independent_page
+title: World Government Bonds privacy policy
+description: World Government Bonds privacy policy
+permalink: /privacy_policy/wgb
+
+---
+
+
 # Privacy Policy
 
 ## Last Updated: 23 december 2024
