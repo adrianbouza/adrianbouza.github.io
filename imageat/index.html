@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imageat - Scan Food. Track Calories. Visualize Data.</title>
+    <meta name="description" content="Imageat is a mobile app that lets you scan food, track your calories and macros, and visualize your data clearly.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="imgs/icon.png" type="image/png">
+
+    <style>
+        :root {
+            --bg-color: #0f1014;
+            --surface-color: #1a1c23;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --accent-gradient: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            --accent-color: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Nav */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 16, 20, 0.85);
+            backdrop-filter: blur(16px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .btn {
+            background: var(--accent-gradient);
+            color: #000000;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.05);
+            box-shadow: none;
+            border-color: rgba(255,255,255,0.4);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 5% 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 4rem;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--accent-color);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .highlight {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--accent-color);
+            filter: blur(150px);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .phone-mockup {
+            max-width: 280px;
+            width: 100%;
+            border-radius: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            border: 8px solid #1f222b;
+            animation: float 6s ease-in-out infinite;
+            object-fit: cover;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Features */
+        .features {
+            padding: 6rem 5%;
+            background: #12141a;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-card {
+            background: var(--surface-color);
+            border-radius: 24px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.02);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            border-color: rgba(255,255,255,0.05);
+        }
+
+        .feature-card:hover::after {
+            opacity: 1;
+        }
+
+        .feature-img-wrapper {
+            height: 320px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            border-radius: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            background: rgba(0,0,0,0.3);
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            position: relative;
+        }
+
+        .feature-card img {
+            width: 180px;
+            height: auto;
+            border-radius: 20px 20px 0 0;
+            border: 4px solid #2a2d38;
+            border-bottom: none;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            object-fit: contain;
+            margin-bottom: -10px;
+        }
+        
+        .feature-card:hover img {
+            transform: translateY(-20px);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* CTA */
+        .cta-section {
+            padding: 8rem 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: var(--bg-color);
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: var(--accent-gradient);
+            filter: blur(350px);
+            border-radius: 50%;
+            z-index: 1;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5% 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            background: #0a0b0e;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .contact-info a {
+            color: var(--text-primary);
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        
+        .contact-info a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            opacity: 0.6;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 8rem;
+                gap: 3rem;
+            }
+            .hero-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .phone-mockup {
+                max-width: 240px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .feature-card {
+                padding: 1.5rem;
+            }
+            .feature-img-wrapper {
+                height: 250px;
+            }
+            .feature-card img {
+                width: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-container">
+            <img src="imgs/icon.png" alt="Imageat Icon" class="logo">
+            Imageat
+        </div>
+        <a href="mailto:abnaveira.dev@gmail.com" class="btn">Contact</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="pill">Smart Nutrition Tracker</div>
+            <h1>The easiest way to track your <span class="highlight">Nutrition</span></h1>
+            <p>Simply scan your food, let Imageat identify it, and automatically log your calories and macros. Visualizing your daily goals has never been so seamless.</p>
+            <div class="hero-buttons">
+                <a href="#features" class="btn" style="padding: 1rem 2rem; font-size: 1.1rem;">Explore Features</a>
+                <a href="mailto:abnaveira.dev@gmail.com" class="btn btn-outline" style="padding: 1rem 2rem; font-size: 1.1rem;">Support</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="imgs/listing1.png" alt="Imageat App Mockup" class="phone-mockup">
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="section-header">
+            <h2>Everything you need to succeed</h2>
+            <p>Imageat combines cutting-edge AI with an intuitive interface to make tracking your daily nutrition effortless.</p>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-img-wrapper">
+                    <img src="imgs/listing2.png" alt="Scan Food">
+                </div>
+                <h3>Scan & Identify</h3>
+                <p>Take a picture of your meal and our advanced scanner instantly recognizes the food and portion size.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-img-wrapper">
+                    <img src="imgs/listing3.png" alt="Track Macros">
+                </div>
+                <h3>Track Macros</h3>
+                <p>Automatically log your proteins, carbs, and fats. Stay within your daily targets effortlessly.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-img-wrapper">
+                    <img src="imgs/listing4.png" alt="Visualize Data">
+                </div>
+                <h3>Visualize Data Clearly</h3>
+                <p>Beautiful charts and insights help you understand your eating habits and make better choices over time.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Start your journey today</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 1.2rem;">Join thousands of users improving their health with Imageat.</p>
+            <a href="mailto:abnaveira.dev@gmail.com" class="btn" style="padding: 1rem 2.5rem; font-size: 1.15rem;">Contact Support</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="logo-container">
+                <img src="imgs/icon.png" alt="Imageat Icon" class="logo">
+                Imageat
+            </div>
+            <div class="contact-info">
+                Need help? <a href="mailto:abnaveira.dev@gmail.com">abnaveira.dev@gmail.com</a>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Imageat. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
