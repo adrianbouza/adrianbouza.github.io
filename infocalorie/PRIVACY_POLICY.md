@@ -4,7 +4,7 @@
 
 This Privacy Policy describes how InfoCalorie (“we”, “us”, “our”) collects, uses, stores, and deletes information when you use the InfoCalorie mobile and web application (the “App”).
 
-By using the App, you agree to this policy. If you do not agree, please do not use the App.
+By using the App, you agree to this Privacy Policy and our Terms of Service. If you do not agree, please do not use the App.
 
 ## 1. Who we are
 
@@ -14,7 +14,7 @@ InfoCalorie is operated by an independent developer. For privacy requests or que
 
 We collect and process information you provide or that is generated when you use the App:
 
-- **Account identifier.** The App may sign you in with an anonymous or other account mechanism so your data can be stored securely and retrieved only for you.
+- **Account Information.** We collect information necessary to authenticate you and secure your data. This includes your email and password if you sign in with credentials, or account identifiers and basic profile information (such as your name or email) provided by third parties if you sign in using Google, Apple, or Microsoft. We also support anonymous sign-in.
 - **Photos.** Images you capture or select for food logging.
 - **Optional text.** Hints or notes you choose to send with an entry to improve analysis.
 - **Food log data.** Timestamps, categories, nutrition estimates, and related metadata associated with your entries.
@@ -22,7 +22,7 @@ We collect and process information you provide or that is generated when you use
 - **Usage limits.** Technical counters needed to enforce fair use of automated analysis (for example, analyses used per day for your account).
 - **Diagnostics.** If something goes wrong on our servers, we may log error information (such as error messages and technical context) to fix issues and keep the service reliable. Some logs may be associated with your account identifier.
 
-We do not require your name, email address, or phone number to use the core service unless we add optional sign-in methods in the future.
+If you choose to use our credential or third-party sign-in options (Google, Apple, Microsoft), we collect your email address and basic profile information provided by those services. You can also use the core service anonymously without providing personal contact details.
 
 ## 3. How we use your information
 
