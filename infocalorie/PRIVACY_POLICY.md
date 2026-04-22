@@ -1,14 +1,14 @@
-# Privacy Policy — Imageat
+# Privacy Policy — InfoCalorie
 
 **Last updated:** March 28, 2026
 
-This Privacy Policy describes how Imageat (“we”, “us”, “our”) collects, uses, stores, and deletes information when you use the Imageat mobile and web application (the “App”).
+This Privacy Policy describes how InfoCalorie (“we”, “us”, “our”) collects, uses, stores, and deletes information when you use the InfoCalorie mobile and web application (the “App”).
 
 By using the App, you agree to this policy. If you do not agree, please do not use the App.
 
 ## 1. Who we are
 
-Imageat is operated by an independent developer. For privacy requests or questions, contact us at **abnaveira.dev@gmail.com**.
+InfoCalorie is operated by an independent developer. For privacy requests or questions, contact us at **abnaveira.dev@gmail.com**.
 
 ## 2. Information we collect
 
