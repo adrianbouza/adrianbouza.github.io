@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PontePelo - AI Hairstyle Studio</title>
+    <meta name="description" content="PontePelo helps you preview haircuts and hairstyles with AI before choosing your next look.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --ink: #17120e;
+            --muted: #796b5d;
+            --paper: #f7efe3;
+            --cream: #fffaf1;
+            --gold: #b98943;
+            --copper: #8e4f2c;
+            --charcoal: #211b16;
+            --line: rgba(23, 18, 14, 0.16);
+            --shadow: 0 24px 80px rgba(44, 27, 14, 0.22);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at 12% 8%, rgba(185, 137, 67, 0.22), transparent 28rem),
+                linear-gradient(135deg, #fff7eb 0%, #efe0cc 48%, #d6b891 100%);
+            color: var(--ink);
+            font-family: 'Archivo', sans-serif;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .nav {
+            align-items: center;
+            backdrop-filter: blur(18px);
+            background: rgba(255, 250, 241, 0.74);
+            border: 1px solid rgba(255, 255, 255, 0.62);
+            border-radius: 999px;
+            box-shadow: 0 12px 40px rgba(45, 31, 20, 0.08);
+            display: flex;
+            justify-content: space-between;
+            left: 50%;
+            max-width: 1180px;
+            padding: 0.85rem 1rem 0.85rem 1.15rem;
+            position: fixed;
+            top: 1rem;
+            transform: translateX(-50%);
+            width: calc(100% - 2rem);
+            z-index: 20;
+        }
+
+        .brand {
+            align-items: center;
+            display: flex;
+            gap: 0.7rem;
+            font-weight: 900;
+            letter-spacing: -0.04em;
+        }
+
+        .brand-mark {
+            align-items: center;
+            background: var(--charcoal);
+            border-radius: 50%;
+            color: #f5d9a5;
+            display: grid;
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.15rem;
+            height: 2.45rem;
+            place-items: center;
+            width: 2.45rem;
+        }
+
+        .nav-links {
+            align-items: center;
+            display: flex;
+            gap: 1rem;
+            color: var(--muted);
+            font-size: 0.92rem;
+            font-weight: 700;
+        }
+
+        .button {
+            background: var(--ink);
+            border-radius: 999px;
+            color: var(--cream);
+            display: inline-flex;
+            font-weight: 900;
+            justify-content: center;
+            padding: 0.95rem 1.35rem;
+            transition: transform 180ms ease, box-shadow 180ms ease;
+        }
+
+        .button:hover {
+            box-shadow: 0 12px 30px rgba(23, 18, 14, 0.24);
+            transform: translateY(-2px);
+        }
+
+        .button.secondary {
+            background: rgba(255, 250, 241, 0.64);
+            border: 1px solid var(--line);
+            color: var(--ink);
+        }
+
+        .hero {
+            display: grid;
+            gap: 4rem;
+            grid-template-columns: minmax(0, 1.02fr) minmax(300px, 0.78fr);
+            margin: 0 auto;
+            max-width: 1220px;
+            min-height: 100vh;
+            padding: 9rem 1.25rem 5rem;
+            position: relative;
+        }
+
+        .eyebrow {
+            color: var(--copper);
+            font-size: 0.84rem;
+            font-weight: 900;
+            letter-spacing: 0.24em;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: clamp(4rem, 9vw, 8.8rem);
+            font-weight: 900;
+            letter-spacing: -0.085em;
+            line-height: 0.82;
+            margin-bottom: 1.6rem;
+            max-width: 780px;
+        }
+
+        .script {
+            color: var(--copper);
+            display: block;
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-weight: 400;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-copy {
+            color: var(--muted);
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            max-width: 610px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.9rem;
+            margin-top: 2.2rem;
+        }
+
+        .stats {
+            border-top: 1px solid var(--line);
+            display: grid;
+            gap: 1.2rem;
+            grid-template-columns: repeat(3, 1fr);
+            margin-top: 4rem;
+            max-width: 640px;
+            padding-top: 1.4rem;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 1.55rem;
+            letter-spacing: -0.04em;
+        }
+
+        .stat span {
+            color: var(--muted);
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .phone-stack {
+            align-self: center;
+            min-height: 720px;
+            position: relative;
+        }
+
+        .phone {
+            background: #0b0a08;
+            border: 10px solid #0b0a08;
+            border-radius: 2.4rem;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            position: absolute;
+        }
+
+        .phone img {
+            display: block;
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .phone.primary {
+            height: 680px;
+            right: 0;
+            top: 0;
+            width: 315px;
+            z-index: 2;
+        }
+
+        .phone.secondary {
+            height: 420px;
+            left: 0;
+            top: 210px;
+            transform: rotate(-7deg);
+            width: 195px;
+            z-index: 3;
+        }
+
+        .stamp {
+            align-items: center;
+            background: var(--gold);
+            border: 2px solid rgba(255, 250, 241, 0.72);
+            border-radius: 50%;
+            box-shadow: 0 18px 50px rgba(126, 78, 31, 0.32);
+            color: var(--cream);
+            display: flex;
+            flex-direction: column;
+            font-weight: 900;
+            height: 9rem;
+            justify-content: center;
+            line-height: 1;
+            position: absolute;
+            right: 245px;
+            text-align: center;
+            top: 92px;
+            transform: rotate(-10deg);
+            width: 9rem;
+            z-index: 4;
+        }
+
+        .stamp span {
+            font-family: 'Instrument Serif', serif;
+            font-size: 2.3rem;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .section {
+            padding: 6rem 1.25rem;
+        }
+
+        .section-inner {
+            margin: 0 auto;
+            max-width: 1180px;
+        }
+
+        .panel {
+            background: rgba(255, 250, 241, 0.76);
+            border: 1px solid rgba(255, 255, 255, 0.72);
+            border-radius: 2.4rem;
+            box-shadow: 0 26px 80px rgba(75, 49, 28, 0.14);
+            padding: clamp(1.5rem, 4vw, 3rem);
+        }
+
+        .section-title {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: 1fr 1fr;
+            margin-bottom: 2rem;
+        }
+
+        .section-title h2 {
+            font-size: clamp(2.6rem, 6vw, 5.2rem);
+            font-weight: 900;
+            letter-spacing: -0.075em;
+            line-height: 0.9;
+        }
+
+        .section-title p {
+            color: var(--muted);
+            font-size: 1.08rem;
+            max-width: 520px;
+        }
+
+        .feature-grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .feature-card {
+            background: var(--cream);
+            border: 1px solid var(--line);
+            border-radius: 1.5rem;
+            overflow: hidden;
+        }
+
+        .feature-card img {
+            aspect-ratio: 9 / 13;
+            display: block;
+            object-fit: cover;
+            object-position: top;
+            width: 100%;
+        }
+
+        .feature-card div {
+            padding: 1.25rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.35rem;
+            letter-spacing: -0.04em;
+            margin-bottom: 0.45rem;
+        }
+
+        .feature-card p {
+            color: var(--muted);
+        }
+
+        .steps {
+            background: var(--charcoal);
+            color: var(--cream);
+        }
+
+        .steps .section-title p,
+        .steps .eyebrow {
+            color: #d4b984;
+        }
+
+        .step-list {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .step {
+            border: 1px solid rgba(255, 250, 241, 0.18);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+        }
+
+        .step-number {
+            color: var(--gold);
+            font-family: 'Instrument Serif', serif;
+            font-size: 3.5rem;
+            font-style: italic;
+            line-height: 1;
+            margin-bottom: 1.2rem;
+        }
+
+        .step h3 {
+            font-size: 1.45rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .step p {
+            color: rgba(255, 250, 241, 0.68);
+        }
+
+        .cta {
+            padding-bottom: 3rem;
+        }
+
+        .cta-card {
+            align-items: center;
+            background:
+                linear-gradient(135deg, rgba(23, 18, 14, 0.92), rgba(88, 49, 28, 0.86)),
+                url('imgs/20260708_103123424_iOS.png') center/cover;
+            border-radius: 2.4rem;
+            color: var(--cream);
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: 1fr auto;
+            margin: 0 auto;
+            max-width: 1180px;
+            min-height: 360px;
+            overflow: hidden;
+            padding: clamp(2rem, 5vw, 4rem);
+        }
+
+        .cta-card h2 {
+            font-size: clamp(3rem, 7vw, 6.4rem);
+            font-weight: 900;
+            letter-spacing: -0.08em;
+            line-height: 0.88;
+            max-width: 760px;
+        }
+
+        .cta-card p {
+            color: rgba(255, 250, 241, 0.72);
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            max-width: 560px;
+        }
+
+        .cta-card .button {
+            background: var(--cream);
+            color: var(--ink);
+        }
+
+        footer {
+            align-items: center;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: space-between;
+            margin: 0 auto;
+            max-width: 1180px;
+            padding: 2rem 1.25rem 3rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-weight: 700;
+        }
+
+        @media (max-width: 980px) {
+            .hero,
+            .section-title,
+            .cta-card {
+                grid-template-columns: 1fr;
+            }
+
+            .phone-stack {
+                margin: 0 auto;
+                max-width: 430px;
+                width: 100%;
+            }
+
+            .feature-grid,
+            .step-list {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-card img {
+                aspect-ratio: 4 / 5;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links a:not(.button) {
+                display: none;
+            }
+
+            .hero {
+                gap: 2.5rem;
+                padding-top: 7.5rem;
+            }
+
+            h1 {
+                font-size: clamp(3.8rem, 18vw, 5.8rem);
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .phone-stack {
+                min-height: 580px;
+            }
+
+            .phone.primary {
+                height: 560px;
+                width: 260px;
+            }
+
+            .phone.secondary {
+                height: 310px;
+                top: 205px;
+                width: 145px;
+            }
+
+            .stamp {
+                height: 7rem;
+                right: 180px;
+                top: 58px;
+                width: 7rem;
+            }
+
+            footer {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav" aria-label="Main navigation">
+        <a href="./" class="brand" aria-label="PontePelo home">
+            <span class="brand-mark">P</span>
+            PontePelo
+        </a>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How it works</a>
+            <a href="mailto:abnaveira.dev@gmail.com" class="button">Contact</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div>
+                <p class="eyebrow">AI Barber Studio</p>
+                <h1>Try the cut <span class="script">before</span> the chair.</h1>
+                <p class="hero-copy">PontePelo lets you explore hairstyles, upload your own photo, and generate realistic try-ons so your next look starts with confidence.</p>
+                <div class="hero-actions">
+                    <a href="#features" class="button">Explore the studio</a>
+                    <a href="mailto:abnaveira.dev@gmail.com" class="button secondary">Support</a>
+                </div>
+                <div class="stats" aria-label="PontePelo highlights">
+                    <div class="stat">
+                        <strong>AI</strong>
+                        <span>Style previews</span>
+                    </div>
+                    <div class="stat">
+                        <strong>Fast</strong>
+                        <span>Generated try-ons</span>
+                    </div>
+                    <div class="stat">
+                        <strong>Saved</strong>
+                        <span>Look archive</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phone-stack" aria-hidden="true">
+                <div class="stamp">Free <span>AI</span> hair</div>
+                <div class="phone primary">
+                    <img src="imgs/20260708_103553502_iOS.png" alt="PontePelo generated hairstyle result">
+                </div>
+                <div class="phone secondary">
+                    <img src="imgs/20260708_103231448_iOS.png" alt="PontePelo style catalog">
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="section">
+            <div class="section-inner panel">
+                <div class="section-title">
+                    <div>
+                        <p class="eyebrow">What you can do</p>
+                        <h2>A studio in your pocket.</h2>
+                    </div>
+                    <p>Browse cuts, pair a reference with your own image, queue a try-on, and keep the results that are worth showing your barber.</p>
+                </div>
+
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <img src="imgs/20260708_103231448_iOS.png" alt="PontePelo hairstyle catalog screen">
+                        <div>
+                            <h3>Choose a look</h3>
+                            <p>Explore a visual catalog of short cuts, braids, waves, crops, and more.</p>
+                        </div>
+                    </article>
+
+                    <article class="feature-card">
+                        <img src="imgs/20260708_103416934_iOS.png" alt="PontePelo selected style screen">
+                        <div>
+                            <h3>Match your photo</h3>
+                            <p>Use your own image as the base so the preview feels personal and practical.</p>
+                        </div>
+                    </article>
+
+                    <article class="feature-card">
+                        <img src="imgs/20260708_104023830_iOS.png" alt="PontePelo saved looks screen">
+                        <div>
+                            <h3>Save your shortlist</h3>
+                            <p>Compare generated looks and keep the styles you want to revisit later.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="section steps">
+            <div class="section-inner">
+                <div class="section-title">
+                    <div>
+                        <p class="eyebrow">Simple flow</p>
+                        <h2>From maybe to mirror-ready.</h2>
+                    </div>
+                    <p>Designed around the same principle as a focused app landing page: show the promise, show the screens, and make help easy to reach.</p>
+                </div>
+
+                <div class="step-list">
+                    <article class="step">
+                        <div class="step-number">01</div>
+                        <h3>Pick the reference</h3>
+                        <p>Start with a hairstyle from the catalog and inspect the detail before generating.</p>
+                    </article>
+                    <article class="step">
+                        <div class="step-number">02</div>
+                        <h3>Generate your try-on</h3>
+                        <p>PontePelo combines your photo with the selected cut to create a preview.</p>
+                    </article>
+                    <article class="step">
+                        <div class="step-number">03</div>
+                        <h3>Archive the winners</h3>
+                        <p>Keep your best results and compare them before booking or changing style.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section cta">
+            <div class="cta-card">
+                <div>
+                    <p class="eyebrow">Ready when you are</p>
+                    <h2>Find the haircut that suits you best.</h2>
+                    <p>Questions, support requests, and app feedback can be sent directly to the project owner.</p>
+                </div>
+                <a href="mailto:abnaveira.dev@gmail.com" class="button">Contact support</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="brand">
+            <span class="brand-mark">P</span>
+            PontePelo
+        </div>
+        <div class="footer-links">
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy_policy.html">Privacy Policy</a>
+            <a href="mailto:abnaveira.dev@gmail.com">abnaveira.dev@gmail.com</a>
+        </div>
+        <p>&copy; 2026 PontePelo. All rights reserved.</p>
+    </footer>
+</body>
+</html>

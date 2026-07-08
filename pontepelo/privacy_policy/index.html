@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - PontePelo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --ink: #17120e;
+            --muted: #796b5d;
+            --paper: #f7efe3;
+            --cream: #fffaf1;
+            --gold: #b98943;
+            --copper: #8e4f2c;
+            --line: rgba(23, 18, 14, 0.16);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: linear-gradient(135deg, #fff7eb 0%, #efe0cc 52%, #d6b891 100%);
+            color: var(--ink);
+            font-family: 'Archivo', sans-serif;
+            line-height: 1.65;
+            min-height: 100vh;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .nav {
+            align-items: center;
+            backdrop-filter: blur(18px);
+            background: rgba(255, 250, 241, 0.76);
+            border: 1px solid rgba(255, 255, 255, 0.62);
+            border-radius: 999px;
+            display: flex;
+            justify-content: space-between;
+            left: 50%;
+            max-width: 980px;
+            padding: 0.85rem 1rem 0.85rem 1.15rem;
+            position: fixed;
+            top: 1rem;
+            transform: translateX(-50%);
+            width: calc(100% - 2rem);
+            z-index: 20;
+        }
+
+        .brand {
+            align-items: center;
+            display: flex;
+            gap: 0.7rem;
+            font-weight: 900;
+            letter-spacing: -0.04em;
+        }
+
+        .brand-mark {
+            align-items: center;
+            background: #211b16;
+            border-radius: 50%;
+            color: #f5d9a5;
+            display: grid;
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.15rem;
+            height: 2.45rem;
+            place-items: center;
+            width: 2.45rem;
+        }
+
+        .button {
+            background: var(--ink);
+            border-radius: 999px;
+            color: var(--cream);
+            display: inline-flex;
+            font-weight: 900;
+            justify-content: center;
+            padding: 0.85rem 1.2rem;
+        }
+
+        main {
+            margin: 0 auto;
+            max-width: 980px;
+            padding: 8rem 1rem 4rem;
+        }
+
+        .markdown-body {
+            background: rgba(255, 250, 241, 0.82);
+            border: 1px solid rgba(255, 255, 255, 0.72);
+            border-radius: 2rem;
+            box-shadow: 0 26px 80px rgba(75, 49, 28, 0.14);
+            color: var(--muted);
+            font-size: 1.04rem;
+            padding: clamp(1.5rem, 5vw, 3.25rem);
+        }
+
+        .markdown-body h1,
+        .markdown-body h2,
+        .markdown-body h3 {
+            color: var(--ink);
+            letter-spacing: -0.045em;
+            line-height: 1.05;
+            margin: 2rem 0 1rem;
+        }
+
+        .markdown-body h1 {
+            border-bottom: 1px solid var(--line);
+            font-size: clamp(2.7rem, 7vw, 5rem);
+            margin-top: 0;
+            padding-bottom: 1.2rem;
+        }
+
+        .markdown-body h2 {
+            font-size: 1.9rem;
+        }
+
+        .markdown-body p,
+        .markdown-body ul,
+        .markdown-body ol {
+            margin-bottom: 1.15rem;
+        }
+
+        .markdown-body ul,
+        .markdown-body ol {
+            padding-left: 1.4rem;
+        }
+
+        .markdown-body li {
+            margin-bottom: 0.45rem;
+        }
+
+        .markdown-body strong,
+        .markdown-body a {
+            color: var(--copper);
+        }
+
+        footer {
+            color: var(--muted);
+            margin: 0 auto;
+            max-width: 980px;
+            padding: 0 1rem 3rem;
+        }
+
+        @media (max-width: 560px) {
+            .button {
+                padding: 0.75rem 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="../" class="brand">
+            <span class="brand-mark">P</span>
+            PontePelo
+        </a>
+        <a href="../" class="button">Back home</a>
+    </nav>
+
+    <main>
+        <article class="markdown-body">
+            <h1>Privacy Policy</h1>
+            <p>Last updated: July 8, 2026</p>
+            <p>This Privacy Policy explains how PontePelo handles information processed by its backend services.</p>
+
+            <h2>Information We Process</h2>
+            <p>The backend may process information needed to provide the app experience, including:</p>
+            <ul>
+                <li>Uploaded or selected photos used for hairstyle previews or related features.</li>
+                <li>Hairstyle, catalog, task, and generation metadata.</li>
+                <li>Account or authentication identifiers when required by Firebase or backend access controls.</li>
+                <li>Technical information such as request timestamps, service logs, error logs, device or browser metadata, and API usage data.</li>
+            </ul>
+
+            <h2>How We Use Information</h2>
+            <p>We use information to:</p>
+            <ul>
+                <li>Provide hairstyle simulation, image generation, catalog, and administrative features.</li>
+                <li>Store and retrieve user-requested results.</li>
+                <li>Operate, debug, secure, and improve backend services.</li>
+                <li>Prevent abuse, unauthorized access, and service misuse.</li>
+            </ul>
+
+            <h2>Image and Generated Content</h2>
+            <p>Photos and generated images may be processed by cloud infrastructure and third-party AI or storage providers used by the service. Images should only be uploaded when you have the right to use them and when the person shown has consented where required.</p>
+
+            <h2>Service Providers</h2>
+            <p>The backend may rely on providers such as cloud hosting, Firebase, storage, logging, and AI generation services. These providers process information only as needed to deliver their services to PontePelo.</p>
+
+            <h2>Data Retention</h2>
+            <p>We retain information only as long as needed for app functionality, operations, legal obligations, security, or legitimate business purposes. Temporary processing artifacts, logs, and cached files may be deleted according to backend maintenance practices.</p>
+
+            <h2>Security</h2>
+            <p>We use reasonable technical and organizational safeguards to protect information. No system is completely secure, and users should avoid uploading sensitive or unnecessary personal information.</p>
+
+            <h2>User Choices</h2>
+            <p>Users may request deletion or correction of personal information where applicable. Some data may need to be retained for security, legal, or operational reasons.</p>
+
+            <h2>Children's Privacy</h2>
+            <p>The service is not intended for children under the age required by applicable law. Children should not use the service without appropriate parental or guardian consent.</p>
+
+            <h2>Changes</h2>
+            <p>We may update this Privacy Policy as the service evolves. Updated versions will replace this document and include a new effective date.</p>
+
+            <h2>Contact</h2>
+            <p>For privacy questions or requests, contact the PontePelo project owner or administrator.</p>
+        </article>
+    </main>
+
+    <footer>
+        &copy; 2026 PontePelo. All rights reserved.
+    </footer>
+
+</body>
+</html>
