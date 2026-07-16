@@ -1,6 +1,6 @@
 # Terms of Service
 
-Last updated: July 8, 2026
+Last updated: July 16, 2026
 
 These Terms of Service govern use of PontePelo backend-powered features, including hairstyle simulation, image generation, catalog management, and related services.
 
@@ -24,9 +24,17 @@ You are responsible for photos, prompts, metadata, and other content you provide
 
 By submitting content, you grant PontePelo the limited permission needed to process, store, transmit, transform, and display that content for service functionality, support, security, and improvement.
 
+## User Photos and Consent
+
+PontePelo lets users take or select photos, including selfies, for hairstyle preview features. You may only upload, capture, or select photos that you own, are authorized to use, or have permission to use. If a photo includes another person, you are responsible for obtaining any consent required by law before using that photo in the service.
+
+You may not use PontePelo to impersonate others, harass others, create misleading or harmful content, violate privacy or publicity rights, or use another person's image without appropriate permission.
+
 ## Generated Results
 
 Generated hairstyle previews and related outputs are provided for informational, creative, or preview purposes only. Results may be inaccurate, incomplete, unrealistic, or unsuitable for professional decisions.
+
+AI-generated hairstyle previews should not be treated as professional advice or a guarantee of how a hairstyle, haircut, color, or related appearance change will look in real life.
 
 ## Accounts and Access
 
@@ -34,7 +42,7 @@ Some features may require authentication or administrator access. You are respon
 
 ## Third-Party Services
 
-The service may use third-party providers for hosting, storage, Firebase services, logging, and AI generation. Your use of the service may involve processing by those providers subject to their own terms and policies.
+The service may use third-party providers for hosting, Firebase services, logging, storage, and AI generation, including Vast.ai rented GPU instances. Your use of the service may involve processing by those providers subject to their own terms and policies.
 
 ## Availability
 

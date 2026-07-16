@@ -170,7 +170,7 @@
     <main>
         <article class="markdown-body">
             <h1>Privacy Policy</h1>
-            <p>Last updated: July 8, 2026</p>
+            <p>Last updated: July 16, 2026</p>
             <p>This Privacy Policy explains how PontePelo handles information processed by its backend services.</p>
 
             <h2>Information We Process</h2>
@@ -182,23 +182,31 @@
                 <li>Technical information such as request timestamps, service logs, error logs, device or browser metadata, and API usage data.</li>
             </ul>
 
+            <h2>Face Data and Selfie Photos</h2>
+            <p>PontePelo lets users take or select a selfie/photo to preview AI-generated hairstyles. These photos may contain a user's face. We do not use the photo to identify the user, authenticate the user, track the user, build a face recognition profile, create a biometric identifier, or determine identity.</p>
+            <p>We collect and process the selected photo only to generate hairstyle preview images requested by the user. The app may process facial appearance visible in the photo, such as face shape, head position, skin tone, and hair/scalp area, only as needed to produce the hairstyle preview.</p>
+            <p>The selected photo is sent to our backend and to Vast.ai rented GPU instances used for AI image generation. The backend does not intentionally store the original selected selfie/photo in Google Cloud Storage. Vast.ai GPU instances process the photo and may temporarily store workflow input/output artifacts because the generation workflow is asynchronous and uses image output nodes. These temporary files are automatically removed from the Vast.ai instance after 30 days.</p>
+            <p>Generated hairstyle result images may be stored in Google Cloud Storage under per-task paths so the app can retrieve completed asynchronous results. Firestore stores task metadata and storage references, such as task status and generated image paths, but not the original selected selfie/photo.</p>
+            <p>We do not sell face data and do not share it with advertisers, data brokers, or third parties for identification, tracking, or advertising.</p>
+            <p>On the device, the selected photo and generated images may be stored locally so the user can view current and previous try-ons. Users can delete generated try-on tasks/images in the app. Deletion removes the local copy on the device and requests deletion of the related async generation task/result data. Backend logs and security/usage records may be retained for operational, security, abuse-prevention, or legal purposes, but are not used to identify users by face.</p>
+
             <h2>How We Use Information</h2>
             <p>We use information to:</p>
             <ul>
                 <li>Provide hairstyle simulation, image generation, catalog, and administrative features.</li>
-                <li>Store and retrieve user-requested results.</li>
+                <li>Return and display user-requested hairstyle preview results.</li>
                 <li>Operate, debug, secure, and improve backend services.</li>
                 <li>Prevent abuse, unauthorized access, and service misuse.</li>
             </ul>
 
             <h2>Image and Generated Content</h2>
-            <p>Photos and generated images may be processed by cloud infrastructure and third-party AI or storage providers used by the service. Images should only be uploaded when you have the right to use them and when the person shown has consented where required.</p>
+            <p>Photos and generated images may be processed by Vast.ai rented GPU instances used by the service. Images should only be uploaded when you have the right to use them and when the person shown has consented where required.</p>
 
             <h2>Service Providers</h2>
-            <p>The backend may rely on providers such as cloud hosting, Firebase, storage, logging, and AI generation services. These providers process information only as needed to deliver their services to PontePelo.</p>
+            <p>The backend may rely on providers such as cloud hosting, Firebase, logging, and Vast.ai rented GPU instances for AI generation. These providers process information only as needed to deliver their services to PontePelo.</p>
 
             <h2>Data Retention</h2>
-            <p>We retain information only as long as needed for app functionality, operations, legal obligations, security, or legitimate business purposes. Temporary processing artifacts, logs, and cached files may be deleted according to backend maintenance practices.</p>
+            <p>User-selected face photos and generated user result images may be stored locally on the user's device until the user deletes them, clears app data, or uninstalls the app. Vast.ai workflow input/output artifacts are automatically removed from the Vast.ai instance after 30 days. Generated result images stored in Google Cloud Storage are retained so the app can retrieve asynchronous results and are deleted when the user deletes the related try-on task/image in the app. Task metadata, logs, and security/usage records may be retained as long as needed for app functionality, operations, legal obligations, security, abuse prevention, or legitimate business purposes.</p>
 
             <h2>Security</h2>
             <p>We use reasonable technical and organizational safeguards to protect information. No system is completely secure, and users should avoid uploading sensitive or unnecessary personal information.</p>
