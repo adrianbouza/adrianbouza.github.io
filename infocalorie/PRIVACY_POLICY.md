@@ -1,91 +1,65 @@
-# Privacy Policy — InfoCalorie
+# Privacy Policy
 
-**Last updated:** March 28, 2026
+_Last updated: August 20, 2026_
 
-This Privacy Policy describes how InfoCalorie (“we”, “us”, “our”) collects, uses, stores, and deletes information when you use the InfoCalorie mobile and web application (the “App”).
+## 1. Overview
 
-By using the App, you agree to this Privacy Policy and our Terms of Service. If you do not agree, please do not use the App.
+This Privacy Policy explains how InfoCalorie (“we”, “us”) handles information when you use the App.
 
-## 1. Who we are
-
-InfoCalorie is operated by an independent developer. For privacy requests or questions, contact us at **abnaveira.dev@gmail.com**.
+By using the App, you acknowledge this policy.
 
 ## 2. Information we collect
 
-We collect and process information you provide or that is generated when you use the App:
+Authentication identifiers and account information needed to support anonymous mode, email/password sign-in, and optional sign-in providers such as Google, Apple, and Microsoft.
 
-- **Account Information.** We collect information necessary to authenticate you and secure your data. This includes your email and password if you sign in with credentials, or account identifiers and basic profile information (such as your name or email) provided by third parties if you sign in using Google, Apple, or Microsoft. We also support anonymous sign-in.
-- **Photos.** Images you capture or select for food logging.
-- **Optional text.** Hints or notes you choose to send with an entry to improve analysis.
-- **Food log data.** Timestamps, categories, nutrition estimates, and related metadata associated with your entries.
-- **Settings.** Preferences you save in the App (for example, language or daily calorie goal).
-- **Usage limits.** Technical counters needed to enforce fair use of automated analysis (for example, analyses used per day for your account).
-- **Diagnostics.** If something goes wrong on our servers, we may log error information (such as error messages and technical context) to fix issues and keep the service reliable. Some logs may be associated with your account identifier.
+Photos, food descriptions, chat messages, corrections, and optional text you submit for food logging and analysis.
 
-If you choose to use our credential or third-party sign-in options (Google, Apple, Microsoft), we collect your email address and basic profile information provided by those services. You can also use the core service anonymously without providing personal contact details.
+Nutrition estimates, saved plates, meal occurrences, recurring schedules, categories, ingredients, tags, conversation events, snapshots, and related metadata generated for your entries.
 
-## 3. How we use your information
+App settings you save (for example, language, calorie goals, macro goals, and preferences), AI token usage counters, diagnostics, and technical data needed to run and secure the App.
 
-We use this information to:
+Firebase Analytics events and user properties such as screen views, login method, platform, locale, auth state, meal actions, quota events, and API error categories. We do not intentionally log meal text, chat content, emails, tokens, or stack traces as analytics event parameters.
 
-- Provide the App’s features (store entries, show your history and calendar, run food image analysis).
-- Apply usage limits and protect the service from abuse.
-- Maintain, secure, and improve reliability of our systems.
+Cached app data stored locally on your device, such as preferences, recent meals, conversations, and home-screen data, to improve loading speed and app behavior.
 
-We do not sell your personal information. We do not use your data for third-party advertising or cross-app tracking as described in Apple’s App Tracking Transparency framework.
+## 3. How we use information
+
+We use your content to provide the service: store images, run analysis, show results, save meals, maintain conversation history, and support calendar, saved-plate, and recurring-meal features.
+
+We use authentication data to manage sign-in, keep account sessions, and support data transfer or merge decisions when linking anonymous and signed-in accounts.
+
+We use usage counters, App Check, diagnostics, monitoring, and analytics to enforce quotas, prevent abuse, secure the App, improve reliability, and understand product usage.
+
+We may use service providers (for example, Firebase, Google Cloud, AI services, and hosted PostgreSQL infrastructure) to process data on our behalf under appropriate safeguards.
 
 ## 4. AI processing
 
-Food images and related inputs may be processed using artificial intelligence services (for example, Google Vertex AI / Gemini) to generate nutrition estimates. Those estimates are **not medical advice**.
+Food images and related inputs may be sent to AI services (for example, Google Vertex AI / Gemini) to generate nutrition estimates.
 
-Do not submit content you are not allowed to share. Avoid uploading sensitive information unrelated to food logging.
+AI requests may include the current image, the current structured estimate, relevant recent messages, and corrections you provide. Historical images are not necessarily resent unless needed for the requested action.
 
-## 5. Service providers
+Do not submit photos or text you are not allowed to share. Avoid sensitive information unrelated to food logging.
 
-We use third-party infrastructure providers to run the App, including **Google Firebase** (authentication, database, file storage, server-side functions) and **Google Cloud / Vertex AI** for image analysis. These providers process data on our behalf according to their terms and our configuration.
+## 5. Storage and security
 
-## 6. Storage, security, and location
+Data may be stored using providers such as Firebase (Google), Google Cloud services, and hosted PostgreSQL infrastructure. Processing may occur in regions supported by those services.
 
-Data may be stored and processed in data centers and regions supported by our providers. We apply reasonable technical and organizational measures to protect your information. No method of transmission or storage is completely secure.
+We implement reasonable measures to protect data, but no system is perfectly secure.
 
-## 7. Retention and deletion
+## 6. Retention and deletion
 
-### 7.1 Inactivity deletion (60 days)
+We retain information as needed to operate the App, maintain security, enforce usage limits, comply with legal obligations, resolve disputes, and operate backups and logs.
 
-**If you do not create any new food entry for a continuous period of 60 days, we will delete all data associated with your account** in our active systems, including but not limited to: your entries, stored images, categories, settings, usage records tied to your account, and your account credentials as held by our authentication provider, where applicable.
+You can delete your app data using in-app controls where available. The delete-all-data flow is designed to remove meals, conversations, saved plates, photos, categories, preferences, related app data, legacy records, file storage objects, and local cached app data from active systems.
 
-- “New entry” means you successfully add a new food log entry through the App (not merely opening the App or changing settings).
-- The 60-day period is counted from the **date and time of your most recently created entry**.
-- Deletion is performed on a best-effort, automated basis. Small delays may occur.
+We may retain limited technical records, including AI usage or quota counters, security logs, analytics, diagnostics, deletion audit counts, and records required for legal, security, fraud-prevention, or abuse-prevention purposes. Residual copies may remain in backups for a limited time.
 
-### 7.2 Other deletion
+## 7. Children
 
-You may also delete your data at any time using in-app controls (for example, in Settings), where available.
+The App is not directed at children under the age where parental consent is required in your region. Do not use the App if you are not allowed to agree to these terms.
 
-### 7.3 Backups and residuals
+## 8. Your rights and contact
 
-After deletion (whether due to inactivity or your request), **residual copies may remain in encrypted backups or logs for a limited period** before they expire or are overwritten. We do not use deleted content to provide the App to you after deletion is complete in our primary databases.
+Depending on your location, you may have rights to access, correct, export, or delete personal data. Use in-app settings or email us at abnaveira.dev@gmail.com to exercise rights where applicable.
 
-### 7.4 Legal retention
-
-We may retain certain information longer if required by law or to establish, exercise, or defend legal claims.
-
-## 8. Children
-
-The App is not directed at children under the age where parental consent is required in your jurisdiction. Do not use the App if you are not legally able to agree to this policy.
-
-## 9. Your rights
-
-Depending on where you live, you may have rights to access, correct, export, or delete personal data, or to object to or restrict certain processing. To exercise these rights where applicable, use the features in the App or email us at **abnaveira.dev@gmail.com**.
-
-## 10. International transfers
-
-If you use the App from outside the country where our providers process data, your information may be transferred to and processed in other countries. We rely on appropriate safeguards as required by applicable law.
-
-## 11. Changes to this policy
-
-We may update this Privacy Policy from time to time. We will post the updated version with a new “Last updated” date. Continued use of the App after changes means you accept the updated policy, except where your consent is required by law.
-
-## 12. Contact
-
-For privacy questions or requests: **abnaveira.dev@gmail.com**
+For privacy questions, contact us at abnaveira.dev@gmail.com.

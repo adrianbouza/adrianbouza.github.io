@@ -1,41 +1,53 @@
-# Terms of Service — InfoCalorie
+# Terms of Service
 
-**Last updated:** April 22, 2026
+_Last updated: August 20, 2026_
 
-These Terms of Service ("Terms") govern your use of the InfoCalorie mobile and web application (the "App"). By using the App, you agree to these Terms.
+## 1. Agreement
 
-## 1. Acceptance of Terms
+By using InfoCalorie (“the App”), you agree to these Terms of Service. If you do not agree, do not use the App.
 
-By using InfoCalorie, you agree to be bound by these Terms and our Privacy Policy. If you do not agree, please do not use the App.
+We may update these terms from time to time. Continued use after changes means you accept the updated terms.
 
-## 2. Description of Service
+## 2. The service
 
-InfoCalorie provides tools for tracking nutrition and visualizing health data. Information provided by the App, including AI-generated nutrition estimates, is for informational purposes only and is **not medical advice**. Consult a healthcare professional before making any health or dietary changes.
+InfoCalorie helps you log food, chat about meals, save plates, schedule recurring meals, and estimate nutrition (calories, macros, ingredients, and related information) using photos and optional text.
 
-## 3. User Accounts
+The App is provided for personal, non-commercial use unless we agree otherwise in writing.
 
-You can use the App anonymously or create an account using email credentials or a third-party login (Google, Apple, Microsoft). You are responsible for maintaining the confidentiality of your account credentials and for all activities under your account. We may suspend or terminate your account if you violate these Terms.
+## 3. AI-generated estimates
 
-## 4. Acceptable Use
+Nutrition values are produced using automated systems (including AI). They are estimates only and may be inaccurate.
 
-You agree not to:
-- Use the App for any illegal purpose or in violation of any local, state, national, or international law.
-- Violate or encourage others to violate third-party rights, including intellectual property rights.
-- Upload any content that is harmful, offensive, or inappropriate.
-- Interfere with security-related features of the App.
+InfoCalorie is not medical, dietary, or professional advice. Do not use it to diagnose, treat, or prevent any disease. Consult a qualified professional for health decisions.
 
-## 5. Intellectual Property
+## 4. Your account and data
 
-InfoCalorie and its original content, features, and functionality are owned by its developers and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws.
+Access may use anonymous or standard authentication as implemented in the App. You are responsible for activity under your account.
 
-## 6. Disclaimers and Limitations of Liability
+The App may offer multiple sign-in methods (such as email/password and supported identity providers) and may let you continue in anonymous mode.
 
-The App is provided on an "as is" and "as available" basis. We disclaim all warranties of any kind, whether express or implied. InfoCalorie shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of the App.
+If you sign in after using anonymous mode, you may be given options to keep, import, or merge data between anonymous and signed-in profiles.
 
-## 7. Changes to the Terms
+You may delete your app data through features we provide (for example, in Profile or Settings). Some technical records, usage counters, logs, and backups may be retained as described in the Privacy Policy.
 
-We may modify these Terms at any time. We will provide notice of any material changes via the App. Your continued use of the App after changes are published constitutes your acceptance of the new Terms.
+## 5. Acceptable use
 
-## 8. Contact Information
+Do not misuse the App, attempt to access others’ data, interfere with our systems, or use the App unlawfully.
 
-If you have any questions about these Terms, please contact us at **abnaveira.dev@gmail.com**.
+Do not attempt to bypass quotas, abuse AI services, scrape or reverse engineer the service, upload unlawful content, or submit photos/text you do not have rights to use.
+
+We may suspend, restrict, or block access if we reasonably believe these terms are violated or if required for security, abuse-prevention, operational, or legal reasons.
+
+## 6. Availability, disclaimers, and limitation of liability
+
+The App depends on services such as Firebase, Google Cloud, Gemini / Vertex AI, and hosted PostgreSQL infrastructure. Features may be unavailable, delayed, rate-limited, or changed without notice.
+
+We may update, suspend, or discontinue features when needed for maintenance, security, compliance, provider changes, or product development.
+
+The App is provided “as is” without warranties of any kind, to the fullest extent permitted by law.
+
+To the extent permitted by law, we are not liable for indirect, incidental, special, or consequential damages, or for any loss arising from your use of the App or reliance on AI estimates.
+
+## 7. Contact
+
+For questions about these terms, contact us at abnaveira.dev@gmail.com.
